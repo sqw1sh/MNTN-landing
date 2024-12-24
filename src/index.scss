@@ -1,0 +1,141 @@
+$color-bg: #0b1d26;
+$color-primary: #ffffff;
+$color-secondary: #fbd784;
+
+@font-face {
+	font-family: "GilroyBold";
+	src: url("../public/fonts/Gilroy-Bold.ttf");
+}
+
+@font-face {
+	font-family: "GilroyExtrabold";
+	src: url("../public/fonts/Gilroy-Extrabold.ttf");
+}
+
+@font-face {
+	font-family: "ChronicleDisplaySemibold";
+	src: url("../public/fonts/ChronicleDisplay-Semibold.otf");
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.container {
+	max-width: 1502px;
+	padding-right: 20px;
+	padding-left: 20px;
+	margin: 0 auto;
+}
+
+.row {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+}
+
+body {
+	color: $color-primary;
+	background-color: $color-bg;
+	background-image: url("../public/images/bg.png");
+	background-position: top center;
+	background-repeat: no-repeat;
+	font-family: "GilroyBold", sans-serif;
+	font-size: 18px;
+
+	header {
+		padding: 64px 0;
+
+		.container {
+			max-width: 1800px;
+
+			.logo {
+				user-select: none;
+				-webkit-user-drag: none;
+			}
+
+			.menu {
+				.menu-list {
+					list-style: none;
+					gap: 40px;
+
+					.menu-item {
+						.menu-link {
+							display: inline-block;
+							padding-bottom: 4px;
+							color: $color-primary;
+							text-decoration: none;
+							overflow: hidden;
+							position: relative;
+							z-index: 2;
+							opacity: 1;
+							transition: opacity 0.2s;
+
+							&::before {
+								content: "";
+								position: absolute;
+								bottom: 0;
+								left: 0;
+								z-index: 1;
+								width: 100%;
+								height: 2px;
+								background-color: $color-primary;
+								opacity: 1;
+								transform: translateX(-150%);
+								transition: transform 0.3s, opacity 0.2s;
+							}
+
+							&:hover {
+								opacity: 0.8;
+								&::before {
+									opacity: 0.8;
+									transform: translateX(0);
+								}
+							}
+						}
+					}
+				}
+			}
+
+			.profile {
+				gap: 8px;
+			}
+		}
+	}
+
+	main.page {
+		.main {
+            padding-top: 134px;
+			.container {
+				max-width: 990px;
+
+				.subtitle {
+					font-family: "GilroyExtrabold", sans-serif;
+					font-size: 18px;
+					letter-spacing: 6px;
+					text-transform: uppercase;
+					color: $color-secondary;
+					justify-content: unset;
+					gap: 32px;
+					margin-bottom: 32px;
+				}
+
+				.title {
+					font-family: "ChronicleDisplaySemibold", serif;
+					font-size: 88px;
+					line-height: 100px;
+					text-transform: capitalize;
+					margin-bottom: 32px;
+				}
+
+				.text {
+					justify-content: unset;
+					gap: 16px;
+				}
+			}
+		}
+	}
+}
